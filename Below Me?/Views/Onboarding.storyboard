@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboard View Controller-->
+        <scene sceneID="kDI-ok-qxT">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingVC" id="ujc-i3-WAu" customClass="OnboardViewController" customModule="Below_Me_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dLB-0G-DeV"/>
+                        <viewControllerLayoutGuide type="bottom" id="64c-JE-ulh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="39J-3T-OYL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fB6-JQ-5pB" userLabel="skipButton">
+                                <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="skipPressed:" destination="ujc-i3-WAu" eventType="touchUpInside" id="5Nw-tl-laE"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B0y-km-abL" userLabel="groundView">
+                                <frame key="frameInset" minY="647" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="YAn-cy-bNb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="64c-JE-ulh" firstAttribute="top" secondItem="B0y-km-abL" secondAttribute="bottom" id="6OX-17-TLv"/>
+                            <constraint firstItem="B0y-km-abL" firstAttribute="leading" secondItem="39J-3T-OYL" secondAttribute="leadingMargin" constant="-20" id="Qvx-9f-tBL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fB6-JQ-5pB" secondAttribute="trailing" constant="10" id="chd-9z-VY3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="B0y-km-abL" secondAttribute="trailing" constant="-20" id="hHU-r4-E5b"/>
+                            <constraint firstItem="64c-JE-ulh" firstAttribute="top" secondItem="fB6-JQ-5pB" secondAttribute="bottom" constant="20" id="seS-yk-Ilf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="groundView" destination="B0y-km-abL" id="ZdD-nI-zqe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6lb-FI-yR2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-258.39999999999998" y="10.344827586206897"/>
+        </scene>
+    </scenes>
+</document>

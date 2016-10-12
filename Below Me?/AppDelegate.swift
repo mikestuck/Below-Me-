@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // MARK: - Variables
+    
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        setupGoogleAPI()
+        setupView()
+    
         return true
     }
 
@@ -40,7 +46,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    // MARK: - Setups
+    
+    func setupGoogleAPI(){
+        GMSPlacesClient.provideAPIKey(GOOGLE_KEY)
+    }
+    
+    func setupView(){
+        if(UserUtils.checkAndReadFromDefaults(key: USER_DID_VIEW_ONBOARDING) != ""){
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Results", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "ResultsVC")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+        else{
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "OnboardingVC")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
+    }
 }
 
